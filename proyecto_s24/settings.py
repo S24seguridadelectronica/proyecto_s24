@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-x2fj=*=$96=78hjs4$33kh2((!n5*933(178-0d=xf%wl%6r2s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','proyectos24-production.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','proyectos24-production.up.railway.app','proyectos24-production.up.railway.app/inventario/']
 
 
 # Application definition
