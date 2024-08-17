@@ -1,0 +1,12 @@
+{% extends 'inventario/base.html' %}
+
+
+{% block content %}
+  <h2>Lista de Cámaras</h2>
+  <a href="{% url 'crear_camara' %}">Agregar Cámara</a>
+  <ul>
+    {% for camara in camaras %}
+      <li>{{ camara.nombre }} - <a href="{% url 'actualizar_camara' camara.pk %}">Editar</a> | <a href="{% url 'eliminar_camara' camara.pk %}">Eliminar</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

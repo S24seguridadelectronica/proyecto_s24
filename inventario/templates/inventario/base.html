@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Mi Aplicación</h1>
+        <nav>
+            <a href="{% url 'index' %}">Inicio</a>
+            <a href="{% url 'lista_camaras' %}">Ver Cámaras</a>
+        </nav>
+    </header>
+    
+    {% block content %}
+    <!-- Aquí se incluirá el contenido específico de cada página -->
+    {% endblock %}
+    
+    <footer>
+        <p>&copy; 2024 Mi Aplicación</p>
+    </footer>
+</body>
+</html>

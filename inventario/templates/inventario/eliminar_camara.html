@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Eliminar Cámara</h2>
+  <p>¿Estás seguro de que deseas eliminar "{{ camara.nombre }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+    <a href="{% url 'lista_camaras' %}">Cancelar</a>
+  </form>
+{% endblock %}
