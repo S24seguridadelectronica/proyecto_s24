@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name tu_dominio;  # Reemplaza esto por tu dominio real
+
+    # Configura Nginx para servir archivos estáticos
+    location /static/ {
+        alias C:/Users/PERSONAL/apps24/staticfiles/;  # La ruta correcta en Windows
+    }
+
+    # Configura el proxy para pasar las solicitudes a tu aplicación Django
+    location / {
+        proxy_pass http://localhost:8000;  # Asegúrate de que esto sea la URL correcta de tu aplicación Django
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
