@@ -1,11 +1,7 @@
 from pathlib import Path
 import os
 import dj_database_url
-import environ
 
-# Inicializar django-environ
-env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,11 +68,10 @@ WSGI_APPLICATION = 'proyecto_s24.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db()
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
+    )
 }
-# Alternativamente, si estás utilizando dj-database-url:
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-
 
 
 
