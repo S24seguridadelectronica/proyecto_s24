@@ -3,7 +3,7 @@ server {
     server_name proyectos24-production.up.railway.app;
 
     location /static/ {
-        alias /app/staticfiles/;  # Asegúrate de que esta ruta sea correcta
+        alias /apps24/staticfiles/;  # Asegúrate de que esta ruta sea correcta
     }
 
     location / {
