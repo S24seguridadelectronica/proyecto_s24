@@ -4,7 +4,7 @@ server {
 
     # Configura Nginx para servir archivos estáticos
     location /static/ {
-        alias C:/Users/PERSONAL/apps24/staticfiles/;  # La ruta correcta en Windows
+        alias /apps24/staticfiles/;  # La ruta correcta en Windows
     }
 
     # Configura el proxy para pasar las solicitudes a tu aplicación Django
