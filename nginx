@@ -1,5 +1,5 @@
 server {
-    listen 80;
+    listen 8080;
     server_name tu_dominio;  # Reemplaza esto por tu dominio real
 
     # Configura Nginx para servir archivos estáticos
