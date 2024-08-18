@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x2fj=*=$96=78hjs4$33kh2((!n5*933(178-0d=xf%wl%6r2s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','proyectos24-production.up.railway.app','www.proyectos24-production.up.railway.app']
 
@@ -76,8 +76,17 @@ WSGI_APPLICATION = 'proyecto_s24.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://postgres:dNwhIAnNNQsuVRHnjBLwlaqyzAKeZuri@autorack.proxy.rlwy.net:45957/railway')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',  # Nombre de la base de datos
+        'USER': 'postgres',  # Usuario de la base de datos
+        'PASSWORD': 'dNwhIAnNNQsuVRHnjBLwlaqyzAKeZuri',  # Contraseña de la base de datos
+        'HOST': 'autorack.proxy.rlwy.net',  # Host de la base de datos
+        'PORT': '45957',  # Puerto de la base de datos
+    }
 }
+
+
 
 
 
