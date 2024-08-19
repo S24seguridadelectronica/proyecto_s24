@@ -1,0 +1,9 @@
+# Configura todos los archivos de texto para usar LF en el repositorio
+* text=auto
+
+# Mantén los finales de línea LF para archivos Python y TypeScript
+*.py text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
