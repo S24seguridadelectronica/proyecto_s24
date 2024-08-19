@@ -143,7 +143,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8081',
-    'https://proyectos24-production.up.railway.app/',
+    'https://proyectos24-production.up.railway.app',
 ]
 
 CORS_ALLOW_METHODS = [
