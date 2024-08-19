@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x2fj=*=$96=78hjs4$33kh2((!n5*933(178-0d=xf%wl%6r2s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','proyectos24-production.up.railway.app','www.proyectos24-production.up.railway.app']
 
@@ -142,7 +142,21 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://proyectos24-production.up.railway.app", 
+    'http://localhost:8082',
+]
+
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',
+]
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
 ]
 
 # Opcional: configuraciones adicionales para la API
