@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x2fj=*=$96=78hjs4$33kh2((!n5*933(178-0d=xf%wl%6r2s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','proyectos24-production.up.railway.app','www.proyectos24-production.up.railway.app']
 
@@ -35,9 +35,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inventario',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,7 +56,7 @@ ROOT_URLCONF = 'proyecto_s24.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'inventario', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'inventario', 'templates', 'inventario')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,3 +141,16 @@ CSRF_TRUSTED_ORIGINS = [
     'https://proyectos24-production.up.railway.app',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://proyectos24-production.up.railway.app", 
+]
+
+# Opcional: configuraciones adicionales para la API
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+}
