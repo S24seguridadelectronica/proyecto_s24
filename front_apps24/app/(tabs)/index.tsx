@@ -3,6 +3,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CamarasScreen from './CamarasScreen';  // Importa tu nuevo componente
 
+
+
 const Tab = createBottomTabNavigator();
 
 const App = () => {
@@ -15,3 +17,4 @@ const App = () => {
 };
 
 export default App;
+
