@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, Alert } from 'react-native';
 
 const CamarasScreen: React.FC = () => {
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        // URL de tu API
         const apiUrl = 'https://proyectos24-production.up.railway.app/inventario/api/camaras/';
 
-        // Hacer la solicitud
         fetch(apiUrl)
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then((json) => {
                 setData(json);
                 setLoading(false);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
+                setError('Error al cargar los datos. Inténtalo de nuevo más tarde.');
                 setLoading(false);
             });
     }, []);
@@ -26,14 +31,23 @@ const CamarasScreen: React.FC = () => {
         return <ActivityIndicator />;
     }
 
-    // Asegúrate de que los datos estén disponibles y no sean una promesa
+    if (error) {
+        return <Text>{error}</Text>;
+    }
+
     if (!data) {
-        return <Text>No data available</Text>;
+        return <Text>No hay datos disponibles</Text>;
     }
 
     return (
         <View>
-            <Text>{JSON.stringify(data)}</Text>
+            {Array.isArray(data) && data.length > 0 ? (
+                data.map((item, index) => (
+                    <Text key={index}>{JSON.stringify(item)}</Text>
+                ))
+            ) : (
+                <Text>No hay datos disponibles</Text>
+            )}
         </View>
     );
 };
