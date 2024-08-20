@@ -1,13 +1,16 @@
 const path = require('path');
 
 module.exports = {
-  entry: './apps24/front_apps24/app/(tabs)/index.tsx', 
+  entry: './apps24/front_apps24/app/(tabs)/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      'react-native$': 'react-native-web'
+    }
   },
   module: {
     rules: [

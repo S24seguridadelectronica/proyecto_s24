@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "front_apps24",
+    "displayName": "Apps24",
     "slug": "front_apps24",
     "version": "1.0.0",
     "orientation": "portrait",

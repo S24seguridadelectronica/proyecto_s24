@@ -1,51 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 
 const CamarasScreen: React.FC = () => {
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const apiUrl = 'https://proyectos24-production.up.railway.app/inventario/api/camaras/';
-        
+        // URL de tu API
+        const apiUrl = 'http://127.0.0.1:8000/inventario/api/camaras/';
+
+        // Hacer la solicitud
         fetch(apiUrl)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
+            .then((response) => response.json())
             .then((json) => {
                 setData(json);
                 setLoading(false);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
-                setError('Error fetching data');
                 setLoading(false);
             });
     }, []);
 
     if (loading) {
-        return <ActivityIndicator size="large" color="#0000ff" />;
+        return <ActivityIndicator />;
     }
 
-    if (error) {
-        return (
-            <View>
-                <Text>{error}</Text>
-            </View>
-        );
-    }
-
-    if (!data || data.length === 0) {
+    // Asegúrate de que los datos estén disponibles y no sean una promesa
+    if (!data) {
         return <Text>No data available</Text>;
     }
 
     return (
         <View>
-            <Text>{JSON.stringify(data, null, 2)}</Text>
+            <Text>{JSON.stringify(data)}</Text>
         </View>
     );
 };
