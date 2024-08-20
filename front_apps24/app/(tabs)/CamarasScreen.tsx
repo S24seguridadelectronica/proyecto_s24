@@ -7,7 +7,7 @@ const CamarasScreen: React.FC = () => {
 
     useEffect(() => {
         // URL de tu API
-        const apiUrl = 'http://127.0.0.1:8000/inventario/api/camaras/';
+        const apiUrl = 'https://proyectos24-production.up.railway.app/inventario/api/camaras/';
 
         // Hacer la solicitud
         fetch(apiUrl)
