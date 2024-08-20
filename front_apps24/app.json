@@ -27,6 +27,7 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    "homepage": "https://s24seguridadelectronica.github.io/proyecto_s24/",
     "plugins": [
       "expo-router"
     ],
