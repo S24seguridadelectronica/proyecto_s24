@@ -138,7 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://s24seguridadelectronica.github.io/proyecto_s24',
+    'https://s24seguridadelectronica.github.io',
     'https://proyectos24-production.up.railway.app',
 ]
 
@@ -146,7 +146,7 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8081',
     'https://proyectos24-production.up.railway.app',
-    'https://s24seguridadelectronica.github.io/proyecto_s24',
+    'https://s24seguridadelectronica.github.io',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
